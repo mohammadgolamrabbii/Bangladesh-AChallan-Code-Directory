@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangladesh A-Challan Code Directory | সরকারি এ-চালান কোড ডিরেক্টরি ও গাইড</title>
+  <meta name="description" content="বাংলাদেশ সরকারের ১,৮২৫+ সেবামুখী এ-চালান ও ১৪ ডিজিটের অর্থনৈতিক কোড ফাইন্ডার। পাসপোর্ট, বিআরটিএ ড্রাইভিং লাইসেন্স, ই-নামজারি, পুলিশ ক্লিয়ারেন্স, ভ্যাট ও ট্রেড লাইসেন্স ফি গাইড। স্থপতি: মোহাম্মদ গোলাম রাব্বী (Mohammad Golamrabbii)।">
+  <meta name="keywords" content="A-Challan, এ-চালan কোড, সরকারি চালান কোড, পাসপোর্ট চালান কোড, বিআরটিএ চালান কোড, ই নামজারি চালান কোড, পুলিশ ক্লিয়ারেন্স চালান, ভ্যাট কোড, অর্থনৈতিক কোড, IBAS++, Mohammad Golamrabbii, মোহাম্মদ গোলাম রাব্বী">
+  <meta name="author" content="Mohammad Golamrabbii">
+
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohammadgolamrabbii.github.io/Bangladesh-AChallan-Code-Directory/">
+  <meta property="og:title" content="Bangladesh A-Challan Code Directory | সরকারি এ-চালান কোড ফাইন্ডার">
+  <meta property="og:description" content="১,৮২৫+ সরকারি সেবা ও মন্ত্রণালয়ের ১৪ ডিজিটের এ-চালান অর্থনৈতিক কোড সার্চ, ১-ক্লিকে কপি এবং আইবাস++ চালান জমাদানের সম্পূর্ণ নির্দেশিকা।">
+  <meta property="og:image" content="assets/img/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@golamrabbii">
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://mohammadgolamrabbii.github.io/#author",
+        "name": "Mohammad Golamrabbii",
+        "alternateName": "মোহাম্মদ গোলাম রাব্বী",
+        "jobTitle": "Tech & Media Entrepreneur | Geospatial Archivist & Civic Tech Innovator",
+        "image": "https://mohammadgolamrabbii.github.io/Bangladesh-AChallan-Code-Directory/assets/img/profile.jpg",
+        "sameAs": [
+          "https://github.com/mohammadgolamrabbii",
+          "https://linkedin.com/in/golamrabbii",
+          "https://linktr.ee/golamrabbii"
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Bangladesh A-Challan Code Directory",
+        "url": "https://mohammadgolamrabbii.github.io/Bangladesh-AChallan-Code-Directory/",
+        "applicationCategory": "UtilitiesApplication, GovernmentApplication",
+        "operatingSystem": "All",
+        "description": "Comprehensive searchable open directory of 1,825+ Bangladesh Government 14-digit A-Challan economic codes, step-by-step deposit guides, and dynamic fee calculators.",
+        "creator": {
+          "@id": "https://mohammadgolamrabbii.github.io/#author"
+        }
+      },
+      {
+        "@type": "Dataset",
+        "name": "Bangladesh Government A-Challan 14-Digit Economic Codes Directory",
+        "description": "Open database containing 1,825+ official government economic object codes and A-Challan receipt codes across 13 civic service categories and 64 districts.",
+        "creator": {
+          "@id": "https://mohammadgolamrabbii.github.io/#author"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://github.com/mohammadgolamrabbii/Bangladesh-AChallan-Code-Directory/raw/main/data/json/achallan_codes.json"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/csv",
+            "contentUrl": "https://github.com/mohammadgolamrabbii/Bangladesh-AChallan-Code-Directory/raw/main/data/csv/achallan_codes.csv"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-header">
+    <div class="nav-container">
+      <div class="brand-group">
+        <div class="brand-badge"><i class="fa-solid fa-building-columns"></i></div>
+        <div class="brand-text">
+          <span class="brand-title">A-Challan Directory</span>
+          <span class="brand-sub">বাংলাদেশ সরকারি এ-চালান কোড ফাইন্ডার</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="#calculatorSection" class="nav-link"><i class="fa-solid fa-calculator"></i> ফি ক্যালকুলেটর</a>
+        <a href="#guideSection" class="nav-link"><i class="fa-solid fa-book-open"></i> চালানের নিয়ম</a>
+        <a href="#authorSection" class="nav-link"><i class="fa-solid fa-user-tie"></i> স্থপতি</a>
+        <a href="https://github.com/mohammadgolamrabbii/Bangladesh-AChallan-Code-Directory" target="_blank" class="btn btn-github">
+          <i class="fa-brands fa-github"></i> GitHub Repo
+        </a>
+        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="badge-pill">
+        <span class="pulse-dot"></span> ১,৮২৫+ সরকারি অর্থনৈতিক কোড • ৬৪ জেলা • ১৩টি প্রধান সেবা খাত
+      </div>
+      <h1 class="hero-title">
+        সঠিক সরকারি <span>এ-চালান কোড</span> খুঁজুন নিমেষেই
+      </h1>
+      <p class="hero-desc">
+        পাসপোর্ট, ড্রাইভিং লাইসেন্স, জমির ই-নামজারি, পুলিশ ক্লিয়ারেন্স কিংবা ট্রেড লাইসেন্স—বাংলাদেশ সরকারের সঠিক ১৪ ডিজিটের অর্থনৈতিক কোড খুঁজুন, ১-ক্লিকে কপি করুন এবং নির্ভুলভাবে চালান ফরম পূরণ করুন।
+      </p>
+
+      <!-- Search Box -->
+      <div class="hero-search-wrapper">
+        <div class="search-input-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="mainSearchInput" placeholder="সেবার নাম, কোড বা কি-ওয়ার্ড লিখুন (যেমন: Passport, ড্রাইভিং, নামজারি, 5831, 2211, ভ্যাট...)" autocomplete="off">
+          <button id="clearSearchBtn" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+
+      <!-- Quick Chips -->
+      <div class="quick-chips">
+        <span class="chip-label"><i class="fa-solid fa-bolt"></i> দ্রুত খুঁজুন:</span>
+        <button class="quick-chip" data-search="পাসপোর্ট"><i class="fa-solid fa-passport"></i> ই-পাসপোর্ট</button>
+        <button class="quick-chip" data-search="ড্রাইভিং লাইসেন্স"><i class="fa-solid fa-id-card"></i> বিআরটিএ ড্রাইভিং</button>
+        <button class="quick-chip" data-search="ই-নামজারি"><i class="fa-solid fa-landmark"></i> ই-নামজারি</button>
+        <button class="quick-chip" data-search="পুলিশ ক্লিয়ারেন্স"><i class="fa-solid fa-shield-halved"></i> পুলিশ ক্লিয়ারেন্স</button>
+        <button class="quick-chip" data-search="ভ্যাট"><i class="fa-solid fa-receipt"></i> ভ্যাট ও ট্যাক্স</button>
+        <button class="quick-chip" data-search="ট্রেড লাইসেন্স"><i class="fa-solid fa-shop"></i> ট্রেড লাইসেন্স</button>
+        <button class="quick-chip" data-search="সনদ উত্তোলন"><i class="fa-solid fa-graduation-cap"></i> শিক্ষা বোর্ড</button>
+        <button class="quick-chip" data-search="ফায়ার লাইসেন্স"><i class="fa-solid fa-fire-extinguisher"></i> ফায়ার সার্ভিস</button>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-counter-bar">
+        <div class="stat-item">
+          <div class="stat-number" id="statTotalCodes">১,৮২৫+</div>
+          <div class="stat-label">চালান অর্থনৈতিক কোড</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="statCategories">১৩টি</div>
+          <div class="stat-label">সরকারি সেবা ক্যাটাগরি</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">৬৪টি</div>
+          <div class="stat-label">জেলা ও আঞ্চলিক সার্কেল</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">১০০%</div>
+          <div class="stat-label">ওপেন ডাটা ও বিনামূল্যে</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Code Matrix & Filter Section -->
+  <section class="matrix-section" id="matrixSection">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><i class="fa-solid fa-table-list"></i> এ-চালান কোড সার্চ ও ডিরেক্টরি</h2>
+          <p class="section-subtitle">১৪ ডিজিটের কোড নির্বাচন করুন এবং ক্লিক করে কপি করুন</p>
+        </div>
+        <div class="results-meta">
+          মোট ফলাফল: <span id="resultsCount">১,৮২৫</span> টি কোড
+        </div>
+      </div>
+
+      <!-- Filters Row -->
+      <div class="filter-controls-card">
+        <div class="filter-group">
+          <label><i class="fa-solid fa-filter"></i> ক্যাটাগরি ফিল্টার:</label>
+          <select id="categoryFilter" class="form-select">
+            <option value="all">সকল ক্যাটাগরি (১৩টি)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label><i class="fa-solid fa-location-dot"></i> জেলা / সার্কেল ফিল্টার:</label>
+          <select id="districtFilter" class="form-select">
+            <option value="all">সকল জেলা ও জাতীয় সার্কেল</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label><i class="fa-solid fa-arrow-down-a-z"></i> সাজান:</label>
+          <select id="sortFilter" class="form-select">
+            <option value="relevance">প্রাসঙ্গিকতা অনুসারে</option>
+            <option value="fee_asc">ফি (কম থেকে বেশি)</option>
+            <option value="fee_desc">ফি (বেশি থেকে কম)</option>
+            <option value="name_bn">সেবার নাম (অ-হ)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Codes Grid / List -->
+      <div class="codes-grid" id="codesGrid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="pagination-bar" id="paginationBar">
+        <button id="prevPageBtn" class="btn btn-outline" disabled><i class="fa-solid fa-chevron-left"></i> পূর্ববর্তী</button>
+        <span id="pageInfo">পৃষ্ঠা ১ / ৯২</span>
+        <button id="nextPageBtn" class="btn btn-outline">পরবর্তী <i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fee Calculator Section -->
+  <section class="calculator-section" id="calculatorSection">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title"><i class="fa-solid fa-calculator"></i> স্মার্ট সরকারি ফি ক্যালকুলেটর</h2>
+        <p class="section-subtitle">পাসপোর্ট, ই-নামজারি ও ড্রাইভিং লাইসেন্সের সঠিক সরকারি ফি ও চালানের ব্রেকডাউন হিসাব করুন</p>
+      </div>
+
+      <div class="calc-tabs">
+        <button class="calc-tab-btn active" data-tab="passportTab"><i class="fa-solid fa-passport"></i> ই-পাসপোর্ট ফি</button>
+        <button class="calc-tab-btn" data-tab="namjariTab"><i class="fa-solid fa-landmark"></i> ই-নামজারি ফি ব্রেকডাউন</button>
+        <button class="calc-tab-btn" data-tab="brtaTab"><i class="fa-solid fa-id-card"></i> বিআরটিএ ড্রাইভিং ফি</button>
+      </div>
+
+      <!-- Tab 1: Passport -->
+      <div class="calc-tab-content active" id="passportTab">
+        <div class="calc-card">
+          <div class="calc-form">
+            <div class="calc-row">
+              <label>পৃষ্ঠা সংখ্যা:</label>
+              <select id="passPages" class="form-select">
+                <option value="48">৪৮ পৃষ্ঠা</option>
+                <option value="64">৬৪ পৃষ্ঠা</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label>মেয়াদকাল:</label>
+              <select id="passValidity" class="form-select">
+                <option value="5">৫ বছর</option>
+                <option value="10">১০ বছর</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label>ডেলিভারি ধরন:</label>
+              <select id="passDelivery" class="form-select">
+                <option value="regular">সাধারণ (Regular - ১৫ কর্মদিবস)</option>
+                <option value="express">জরুরি (Express - ৭ কর্মদিবস)</option>
+                <option value="super">অতি জরুরি (Super Express - ২ কর্মদিবস)</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-result-box">
+            <div class="result-title">মোট সরকারি প্রদেয় ফি (১৫% ভ্যাট সহ):</div>
+            <div class="result-amount" id="passportTotalFee">৪,০২৫ টাকা</div>
+            <div class="result-code-box">
+              <span>এ-চালান কোড:</span>
+              <code class="code-pill">1-5831-0000-2061</code>
+              <button class="btn btn-sm btn-copy" onclick="copyText('1-5831-0000-2061')"><i class="fa-solid fa-copy"></i> কপি</button>
+            </div>
+            <div class="result-note">স্বরাষ্ট্র মন্ত্রণালয়ের সুরক্ষা সেবা বিভাগের ইমিগ্রেশন ও পাসপোর্ট অধিদপ্তরের অনুকূলে এই ফি জমা হবে।</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Namjari -->
+      <div class="calc-tab-content" id="namjariTab">
+        <div class="calc-card">
+          <div class="namjari-breakdown-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ধাপ ও ফি এর খাত</th>
+                  <th>অর্থনৈতিক কোড</th>
+                  <th>সরকারি ফি</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>১. আবেদন কোর্ট ফি</td>
+                  <td><code>1-4631-0000-2681</code></td>
+                  <td>২০ টাকা</td>
+                </tr>
+                <tr>
+                  <td>২. নোটিশ জারি ফি</td>
+                  <td><code>1-4631-0000-2061</code></td>
+                  <td>৫০ টাকা</td>
+                </tr>
+                <tr>
+                  <td>৩. রেকর্ড সংশোধন ফি (DCR)</td>
+                  <td><code>1-4631-0000-2061</code></td>
+                  <td>১,০০০ টাকা</td>
+                </tr>
+                <tr>
+                  <td>৪. খতিয়ান প্রিন্ট / ডেলিভারি ফি</td>
+                  <td><code>1-4631-0000-2061</code></td>
+                  <td>১০০ টাকা</td>
+                </tr>
+                <tr class="table-highlight">
+                  <td><strong>সর্বমোট ই-নামজারি সরকারি খরচ</strong></td>
+                  <td><strong>প্যাকেজ কোড: 1-4631-0000-2061</strong></td>
+                  <td><strong>১,১৭০ টাকা</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="calc-result-box">
+            <div class="result-title">সর্বমোট প্রদেয় নামজারি ফি:</div>
+            <div class="result-amount">১,১৭০ টাকা</div>
+            <div class="result-note">
+              <strong>সতর্কতা:</strong> সরকারি নিয়ম অনুযায়ী ই-নামজারিতে সর্বমোট ১,১৭০ টাকার বেশি কোনো সরকারি ফি নেই। অতিরিক্ত কোনো অর্থ প্রদান আইনত নিষিদ্ধ।
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: BRTA -->
+      <div class="calc-tab-content" id="brtaTab">
+        <div class="calc-card">
+          <div class="calc-form">
+            <div class="calc-row">
+              <label>লাইসেন্স ক্যাটাগরি:</label>
+              <select id="brtaType" class="form-select">
+                <option value="learner_single">লার্নার - একক ক্যাটাগরি (মোটরসাইকেল বা হালকা)</option>
+                <option value="learner_dual">লার্নার - উভয় ক্যাটাগরি (মোটরসাইকেল ও হালকা)</option>
+                <option value="smart_pro">স্মার্ট কার্ড ড্রাইভিং লাইসেন্স (পেশাদার - ৫ বছর)</option>
+                <option value="smart_nonpro">স্মার্ট কার্ড ড্রাইভিং লাইসেন্স (অপেশাদার - ১০ বছর)</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-result-box">
+            <div class="result-title">নির্ধারিত সরকারি ফি (১৫% ভ্যাট সহ):</div>
+            <div class="result-amount" id="brtaTotalFee">৭৪৮ টাকা</div>
+            <div class="result-code-box">
+              <span>এ-চালান কোড:</span>
+              <code class="code-pill" id="brtaChallanCode">1-3431-0000-2681</code>
+              <button class="btn btn-sm btn-copy" id="brtaCopyBtn"><i class="fa-solid fa-copy"></i> কপি</button>
+            </div>
+            <div class="result-note">বিআরটিএ সার্ভিস পোর্টাল (bsp.brta.gov.bd) বা সোনালী ব্যাংকে চালানের মাধ্যমে জমা দেওয়া যাবে।</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Deposit Guide Section -->
+  <section class="guide-section" id="guideSection">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title"><i class="fa-solid fa-book-open"></i> এ-চালান (A-Challan) কীভাবে কাটবেন?</h2>
+        <p class="section-subtitle">আইবাস++ (iBAS++) পোর্টালে অনলাইন ও সোনালী ব্যাংকে চালান কাটার সহজ ৫টি ধাপ</p>
+      </div>
+
+      <div class="guide-steps-grid">
+        <div class="step-card">
+          <div class="step-num">১</div>
+          <h3 class="step-title">পোর্টালে প্রবেশ করুন</h3>
+          <p class="step-desc">সরকারি চালান পোর্টাল <strong>ibas.finance.gov.bd/acs</strong> ব্রাউজারে খুলুন। "স্বয়ংক্রিয় চালান পদ্ধতি (A-Challan)" নির্বাচন করুন।</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">২</div>
+          <h3 class="step-title">মন্ত্রণালয় ও দপ্তর নির্বাচন</h3>
+          <p class="step-desc">সেবা প্রদানকারী মন্ত্রণালয় (যেমন: স্বরাষ্ট্র, ভূমি, সড়ক পরিবহন) এবং দপ্তর বা অধিদপ্তর কোড বাছাই করুন।</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">৩</div>
+          <h3 class="step-title">১৪ ডিজিটের কোড প্রদান</h3>
+          <p class="step-desc">আমাদের ডিরেক্টরি থেকে প্রাপ্ত সঠিক ১৪ ডিজিটের অর্থনৈতিক কোডটি লিখুন বা সংশ্লিষ্ট সেবার নাম ড্রপডাউন থেকে নির্বাচন করুন।</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">৪</div>
+          <h3 class="step-title">অনলাইন পেমেন্ট সম্পন্নকরণ</h3>
+          <p class="step-desc">বিকাশ, নগদ, রকেট, ইন্টারনেট ব্যাংকিং অথবা ভিসা/মাস্টারকার্ড দিয়ে অর্থ পরিশোধ করুন। কোনো অতিরিক্ত চার্জ নেই।</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">৫</div>
+          <h3 class="step-title">চালান ভাউচার ডাউনলোড</h3>
+          <p class="step-desc">পেমেন্ট সফল হলে সাথে সাথে ট্র্যাকিং নম্বর সহ বারকোডযুক্ত চালান কপি ডাউনলোড ও প্রিন্ট করে সংশ্লিষ্ট অফিসে জমা দিন।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14-Digit Economic Code Architecture Explained -->
+  <section class="code-explainer-section">
+    <div class="container">
+      <div class="explainer-card">
+        <h3 class="explainer-title"><i class="fa-solid fa-circle-info"></i> ১৪ ডিজিটের অর্থনৈতিক কোডের গঠন বিন্যাস (iBAS++ Standard)</h3>
+        <p class="explainer-desc">বাংলাদেশ সরকারের বাজেটিং ও হিসাবরক্ষণ পদ্ধতিতে প্রতিটি চালানের ১৪টি ডিজিটের সুস্পষ্ট অর্থ রয়েছে:</p>
+        <div class="code-anatomy">
+          <div class="anatomy-block">
+            <span class="block-digit">১</span>
+            <span class="block-label">প্রাপ্তি/রাজস্ব</span>
+            <span class="block-sub">(Receipt)</span>
+          </div>
+          <div class="anatomy-sep">-</div>
+          <div class="anatomy-block">
+            <span class="block-digit">XXXX</span>
+            <span class="block-label">মন্ত্রণালয় / বিভাগ</span>
+            <span class="block-sub">(Organization)</span>
+          </div>
+          <div class="anatomy-sep">-</div>
+          <div class="anatomy-block">
+            <span class="block-digit">XXXX</span>
+            <span class="block-label">পরিচালন ইউনিট</span>
+            <span class="block-sub">(Operational Code)</span>
+          </div>
+          <div class="anatomy-sep">-</div>
+          <div class="anatomy-block">
+            <span class="block-digit">XXXX</span>
+            <span class="block-label">অর্থনৈতিক কোড</span>
+            <span class="block-sub">(Object Code)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author Spotlight Section -->
+  <section class="author-section" id="authorSection">
+    <div class="container">
+      <div class="author-card">
+        <div class="author-media">
+          <img src="assets/img/profile.jpg" alt="Mohammad Golamrabbii" class="author-avatar">
+          <div class="author-badge-verified"><i class="fa-solid fa-circle-check"></i> আর্কিটেক্ট ও কিউরেটর</div>
+        </div>
+        <div class="author-info">
+          <h2 class="author-name">মোহাম্মদ গোলাম রাব্বী (Mohammad Golamrabbii)</h2>
+          <div class="author-title">Tech & Media Entrepreneur | Geospatial Archivist & Civic Tech Innovator | Digital Strategist</div>
+          <p class="author-bio">
+            বাংলাদেশের নাগরিকদের সরকারি সেবা গ্রহণে স্বচ্ছতা বৃদ্ধি এবং ডিজিটাল গভর্নেন্সকে সাধারণ মানুষের দোরগোড়ায় পৌঁছে দিতে এই এ-চালান কোড ডিরেক্টরিটি তৈরি করা হয়েছে। দীর্ঘ গবেষণা ও সরকারি অর্থনৈতিক কোড ডাটাবেজ সমন্বয় করে ১,৮২৫+ নির্ভরযোগ্য সেবার কোড উন্মুক্ত করা হলো।
+          </p>
+          <div class="author-social-links">
+            <a href="https://github.com/mohammadgolamrabbii" target="_blank" class="social-btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/golamrabbii" target="_blank" class="social-btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://linktr.ee/golamrabbii" target="_blank" class="social-btn linktree"><i class="fa-solid fa-link"></i> Linktree</a>
+            <a href="mailto:emarketor2025@gmail.com" class="social-btn email"><i class="fa-solid fa-envelope"></i> Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-group">
+            <div class="brand-badge"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="brand-text">
+              <span class="brand-title">A-Challan Directory</span>
+              <span class="brand-sub">Civic Tech Open Data Initiative</span>
+            </div>
+          </div>
+          <p class="footer-text">
+            বাংলাদেশ সরকারের সেবা গ্রহণকে সহজতর করার জন্য একটি অলাভজনক ও উন্মুক্ত ডাটাবেজ।
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">গুরুত্বপূর্ণ সরকারি পোর্টাল</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://ibas.finance.gov.bd/acs/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> আইবাস++ এ-চালান পোর্টাল</a></li>
+            <li><a href="https://epassport.gov.bd" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> ই-পাসপোর্ট অনলাইন পোর্টাল</a></li>
+            <li><a href="https://bsp.brta.gov.bd" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> বিআরটিএ সার্ভিস পোর্টাল</a></li>
+            <li><a href="https://mutation.land.gov.bd" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> ই-নামজারি ভূমি পোর্টাল</a></li>
+            <li><a href="https://pcc.police.gov.bd" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> অনলাইন পুলিশ ক্লিয়ারেন্স</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">ডেভেলপার রিসোর্স ও এপিআই</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://github.com/mohammadgolamrabbii/Bangladesh-AChallan-Code-Directory" target="_blank"><i class="fa-brands fa-github"></i> GitHub Source Code</a></li>
+            <li><a href="data/json/achallan_codes.json" target="_blank"><i class="fa-solid fa-code"></i> JSON Dataset (1,825 Codes)</a></li>
+            <li><a href="data/csv/achallan_codes.csv" target="_blank"><i class="fa-solid fa-file-csv"></i> CSV Dataset Export</a></li>
+            <li><a href="LICENSE" target="_blank"><i class="fa-solid fa-scale-balanced"></i> MIT Open Source License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <strong>Mohammad Golamrabbii (মোহাম্মদ গোলাম রাব্বী)</strong>. All rights reserved under MIT License.</p>
+        <div class="footer-bottom-links">
+          <a href="#matrixSection"><i class="fa-solid fa-arrow-up"></i> শীর্ষে ফিরে যান</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast">কোড কপি করা হয়েছে!</div>
+
+  <!-- Scripts -->
+  <script src="assets/js/achallan-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

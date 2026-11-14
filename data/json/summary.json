@@ -1,0 +1,31 @@
+{
+  "project": "Bangladesh-AChallan-Code-Directory",
+  "author": {
+    "name": "Mohammad Golamrabbii",
+    "name_bn": "মোহাম্মদ গোলাম রাব্বী",
+    "title": "Tech & Media Entrepreneur | Geospatial Archivist & Civic Tech Innovator",
+    "portfolio": "https://linktr.ee/golamrabbii",
+    "github": "https://github.com/mohammadgolamrabbii",
+    "email": "emarketor2025@gmail.com"
+  },
+  "total_codes": 1825,
+  "categories_count": 13,
+  "category_distribution": {
+    "পাসপোর্ট ও ইমিগ্রেশন": 144,
+    "বিআরটিএ ও পরিবহন সেবা": 207,
+    "ভূমি মন্ত্রণালয় ও ই-নামজারি": 205,
+    "স্বরাষ্ট্র ও পুলিশ সেবা": 133,
+    "রাজস্ব বোর্ড, ভ্যাট ও ট্যাক্স": 206,
+    "শিক্ষা বোর্ড ও সনদ সেবা": 130,
+    "আইন, আদালত ও কোর্ট ফি": 134,
+    "বাণিজ্য ও কোম্পানি নিবন্ধন": 71,
+    "সিটি কর্পোরেশন ও ট্রেড লাইসেন্স": 188,
+    "পরিবেশ, বন ও ফায়ার সার্ভিস": 135,
+    "স্বাস্থ্য ও ওষুধ প্রশাসন": 133,
+    "নিয়োগ পরীক্ষা ও কর্ম কমিশন": 7,
+    "কৃষি, মৎস্য ও বীজ প্রত্যয়ন": 132
+  },
+  "districts_covered": 64,
+  "ibas_portal_url": "https://ibas.finance.gov.bd/acs/",
+  "last_updated": "2026-11-14"
+}

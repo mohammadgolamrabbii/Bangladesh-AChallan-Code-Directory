@@ -1,0 +1,43 @@
+{
+  "name": "bangladesh-achallan-code-directory",
+  "version": "1.0.0",
+  "description": "Comprehensive open-source directory of 1,825+ Bangladesh Government A-Challan economic codes, step-by-step deposit guides, and fee calculators for Passport, BRTA, e-Namjari, Police Clearance, NBR, and Trade Licenses.",
+  "main": "sdk/node/index.js",
+  "bin": {
+    "achallan": "sdk/node/cli.js",
+    "a-challan": "sdk/node/cli.js"
+  },
+  "scripts": {
+    "test": "node tests/test_achallan.js",
+    "cli": "node sdk/node/cli.js",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "achallan",
+    "a-challan-code",
+    "bangladesh-government",
+    "ibas-plus-plus",
+    "economic-code",
+    "passport-challan",
+    "brta-driving-license",
+    "e-namjari",
+    "police-clearance",
+    "vat-tax",
+    "trade-license",
+    "mohammad-golamrabbii"
+  ],
+  "author": {
+    "name": "Mohammad Golamrabbii",
+    "email": "emarketor2025@gmail.com",
+    "url": "https://linktr.ee/golamrabbii"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadgolamrabbii/Bangladesh-AChallan-Code-Directory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohammadgolamrabbii/Bangladesh-AChallan-Code-Directory/issues"
+  },
+  "homepage": "https://mohammadgolamrabbii.github.io/Bangladesh-AChallan-Code-Directory/",
+  "license": "MIT"
+}
