@@ -26,12 +26,12 @@
 
   // Initialize
   function init() {
+    setupTheme();
     setupStats();
     populateFilters();
     bindEvents();
     renderPage();
     setupCalculators();
-    setupTheme();
   }
 
   function setupStats() {
@@ -74,65 +74,85 @@
   function bindEvents() {
     // Search with debounce
     let timeout = null;
-    searchInput.addEventListener('input', function () {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        applyFilters();
-      }, 150);
-      clearSearchBtn.style.display = this.value ? 'block' : 'none';
-    });
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          applyFilters();
+        }, 120);
+        if (clearSearchBtn) clearSearchBtn.style.display = this.value ? 'block' : 'none';
+      });
+    }
 
-    clearSearchBtn.addEventListener('click', function () {
-      searchInput.value = '';
-      this.style.display = 'none';
-      applyFilters();
-      searchInput.focus();
-    });
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', function () {
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+        this.style.display = 'none';
+        applyFilters();
+      });
+    }
 
     // Quick chips
     document.querySelectorAll('.quick-chip').forEach(btn => {
-      btn.addEventListener('click', function () {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
         const query = this.getAttribute('data-search');
-        searchInput.value = query;
-        clearSearchBtn.style.display = 'block';
+        if (searchInput) {
+          searchInput.value = query;
+          if (clearSearchBtn) clearSearchBtn.style.display = 'block';
+          searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
         applyFilters();
-        document.getElementById('matrixSection').scrollIntoView({ behavior: 'smooth' });
+        const matrixSection = document.getElementById('matrixSection');
+        if (matrixSection) matrixSection.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
     // Dropdowns
-    categoryFilter.addEventListener('change', applyFilters);
-    districtFilter.addEventListener('change', applyFilters);
-    sortFilter.addEventListener('change', applyFilters);
+    if (categoryFilter) categoryFilter.addEventListener('change', applyFilters);
+    if (districtFilter) districtFilter.addEventListener('change', applyFilters);
+    if (sortFilter) sortFilter.addEventListener('change', applyFilters);
 
     // Pagination
-    prevPageBtn.addEventListener('click', () => {
-      if (currentPage > 1) {
-        currentPage--;
-        renderPage();
-        document.getElementById('matrixSection').scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+    if (prevPageBtn) {
+      prevPageBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderPage();
+          const matrixSection = document.getElementById('matrixSection');
+          if (matrixSection) matrixSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
 
-    nextPageBtn.addEventListener('click', () => {
-      const totalPages = Math.ceil(filteredCodes.length / itemsPerPage);
-      if (currentPage < totalPages) {
-        currentPage++;
-        renderPage();
-        document.getElementById('matrixSection').scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+    if (nextPageBtn) {
+      nextPageBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredCodes.length / itemsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderPage();
+          const matrixSection = document.getElementById('matrixSection');
+          if (matrixSection) matrixSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
 
     // Theme toggle
-    themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    const altThemeBtn = document.getElementById('themeToggle');
+    if (altThemeBtn) altThemeBtn.addEventListener('click', toggleTheme);
   }
 
   function applyFilters() {
-    const query = (searchInput.value || '').trim().toLowerCase();
+    const rawVal = searchInput ? (searchInput.value || '') : '';
+    const query = rawVal.trim().toLowerCase();
     const queryRaw = query.replace(/-/g, '');
-    const selectedCategory = categoryFilter.value;
-    const selectedDistrict = districtFilter.value;
-    const sortBy = sortFilter.value;
+    const selectedCategory = categoryFilter ? categoryFilter.value : 'all';
+    const selectedDistrict = districtFilter ? districtFilter.value : 'all';
+    const sortBy = sortFilter ? sortFilter.value : 'relevance';
 
     filteredCodes = allCodes.filter(item => {
       // Category check
@@ -155,8 +175,9 @@
         const matchCodeRaw = item.code_raw && item.code_raw.includes(queryRaw);
         const matchDept = item.department_bn && item.department_bn.toLowerCase().includes(query);
         const matchMin = item.ministry_bn && item.ministry_bn.toLowerCase().includes(query);
+        const matchCat = item.category && item.category.toLowerCase().includes(query);
 
-        if (!matchNameBn && !matchNameEn && !matchCode14 && !matchCodeRaw && !matchDept && !matchMin) {
+        if (!matchNameBn && !matchNameEn && !matchCode14 && !matchCodeRaw && !matchDept && !matchMin && !matchCat) {
           return false;
         }
       }
@@ -166,11 +187,11 @@
 
     // Sorting
     if (sortBy === 'fee_asc') {
-      filteredCodes.sort((a, b) => a.fee_bdt - b.fee_bdt);
+      filteredCodes.sort((a, b) => (a.fee_bdt || 0) - (b.fee_bdt || 0));
     } else if (sortBy === 'fee_desc') {
-      filteredCodes.sort((a, b) => b.fee_bdt - a.fee_bdt);
+      filteredCodes.sort((a, b) => (b.fee_bdt || 0) - (a.fee_bdt || 0));
     } else if (sortBy === 'name_bn') {
-      filteredCodes.sort((a, b) => a.service_name_bn.localeCompare(b.service_name_bn, 'bn'));
+      filteredCodes.sort((a, b) => (a.service_name_bn || '').localeCompare(b.service_name_bn || '', 'bn'));
     }
 
     currentPage = 1;
@@ -179,16 +200,18 @@
 
   function renderPage() {
     const total = filteredCodes.length;
-    resultsCount.textContent = total.toLocaleString('bn-BD');
+    if (resultsCount) resultsCount.textContent = total.toLocaleString('bn-BD');
 
     const totalPages = Math.max(1, Math.ceil(total / itemsPerPage));
-    pageInfo.textContent = `পৃষ্ঠা ${currentPage.toLocaleString('bn-BD')} / ${totalPages.toLocaleString('bn-BD')}`;
+    if (pageInfo) pageInfo.textContent = `পৃষ্ঠা ${currentPage.toLocaleString('bn-BD')} / ${totalPages.toLocaleString('bn-BD')}`;
 
-    prevPageBtn.disabled = currentPage <= 1;
-    nextPageBtn.disabled = currentPage >= totalPages;
+    if (prevPageBtn) prevPageBtn.disabled = currentPage <= 1;
+    if (nextPageBtn) nextPageBtn.disabled = currentPage >= totalPages;
 
     const startIdx = (currentPage - 1) * itemsPerPage;
     const pageItems = filteredCodes.slice(startIdx, startIdx + itemsPerPage);
+
+    if (!codesGrid) return;
 
     if (pageItems.length === 0) {
       codesGrid.innerHTML = `
@@ -239,30 +262,40 @@
     `).join('');
   }
 
-  // Toast & Copy
+  // Toast & Copy Functions
   window.copyChallanCode = function (text) {
-    navigator.clipboard.writeText(text).then(() => {
-      showToast(`কোড কপি করা হয়েছে: ${text}`);
-    }).catch(() => {
-      // Fallback
+    let copied = false;
+    try {
       const ta = document.createElement('textarea');
       ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      ta.style.left = '-9999px';
       document.body.appendChild(ta);
+      ta.focus();
       ta.select();
-      document.execCommand('copy');
+      copied = document.execCommand('copy');
       document.body.removeChild(ta);
-      showToast(`কোড কপি করা হয়েছে: ${text}`);
-    });
+    } catch (e) {}
+
+    if (!copied && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+
+    showToast(`কোড কপি করা হয়েছে: ${text}`);
   };
 
   window.copyText = window.copyChallanCode;
 
+  let toastTimer = null;
   function showToast(msg) {
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => {
-      toast.classList.remove('show');
+    const toastEl = document.getElementById('toast');
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastEl.classList.remove('show');
     }, 2500);
   }
 
@@ -282,15 +315,38 @@
 
   // Calculators
   function setupCalculators() {
-    // Tabs
-    document.querySelectorAll('.calc-tab-btn').forEach(btn => {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.calc-tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.calc-tab-content').forEach(c => c.classList.remove('active'));
+    // Tab switching with explicit inline styles to guarantee instant rendering
+    const tabBtns = document.querySelectorAll('.calc-tab-btn');
+    const tabContents = document.querySelectorAll('.calc-tab-content');
+
+    // Ensure default state: passportTab active, others hidden
+    tabContents.forEach(c => {
+      if (c.id === 'passportTab') {
+        c.classList.add('active');
+        c.style.display = 'block';
+      } else {
+        c.classList.remove('active');
+        c.style.display = 'none';
+      }
+    });
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('data-tab');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => {
+          c.classList.remove('active');
+          c.style.display = 'none';
+        });
+
         this.classList.add('active');
-        const target = this.getAttribute('data-tab');
-        const content = document.getElementById(target);
-        if (content) content.classList.add('active');
+        const activeContent = document.getElementById(targetId);
+        if (activeContent) {
+          activeContent.classList.add('active');
+          activeContent.style.display = 'block';
+        }
       });
     });
 
@@ -374,26 +430,33 @@
   // Theme Management
   function setupTheme() {
     const savedTheme = localStorage.getItem('achallan_theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
+    applyTheme(savedTheme);
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    updateThemeIcon(theme);
   }
 
   function toggleTheme() {
     const current = document.documentElement.getAttribute('data-theme') || 'light';
     const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('achallan_theme', next);
-    updateThemeIcon(next);
+    applyTheme(next);
   }
 
   function updateThemeIcon(theme) {
-    if (!themeToggleBtn) return;
-    const icon = themeToggleBtn.querySelector('i');
-    if (icon) {
+    const icons = document.querySelectorAll('#themeToggleBtn i, #themeToggle i');
+    icons.forEach(icon => {
       icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    }
+    });
   }
 
   // Run on DOM load
-  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
